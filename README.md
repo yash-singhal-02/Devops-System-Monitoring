@@ -99,6 +99,7 @@ The automation script is executed using the following command:
 |----------|------------|
 | ![Git Init](screenshots/git_init.png) | Git repository initialization |
 | ![Branches](screenshots/branches.png) | Branch creation and listing |
+| ![Commits](screenshots/commits.png) | Commit history |
 | ![Merge Conflict](screenshots/merge_conflict.png) | Merge conflict demonstration |
 | ![Conflict Resolved](screenshots/conflict_resolved.png) | Conflict resolution |
 | ![Script Run](screenshots/script_run.png) | Automation script execution |
