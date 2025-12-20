@@ -102,6 +102,8 @@ The automation script is executed using the following command:
 | ![Merge Conflict](screenshots/merge_conflict.png) | Merge conflict demonstration |
 | ![Conflict Resolved](screenshots/conflict_resolved.png) | Conflict resolution |
 | ![Script Run](screenshots/script_run.png) | Automation script execution |
+| ![GitHub Repo](screenshots/github_repo.png) | Project pushed to GitHub |
+
 
 ---
 
