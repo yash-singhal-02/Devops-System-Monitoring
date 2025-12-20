@@ -1,6 +1,8 @@
 #!/bin/bash
 
+# This script generates an automated system monitoring report
 # Initial system monitoring script
+
 
 echo "Final Linux System Monitoring Report" > system_report.txt
 date >> system_report.txt
