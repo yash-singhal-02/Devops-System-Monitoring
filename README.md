@@ -5,13 +5,13 @@
 
 ---
 
-## 📌 Introduction
+## Introduction
 This project is developed as part of the **Fundamentals of DevOps** course to demonstrate the practical usage of **Git Bash and GitHub** along with basic **Linux automation**.  
 The project focuses on applying version control concepts such as repository creation, branching, merging, and conflict resolution, along with automating system monitoring tasks using a shell script.
 
 ---
 
-## 🎯 Project Objectives
+## Project Objectives
 - To automate basic system monitoring using Linux shell scripting  
 - To understand and apply Git version control concepts  
 - To perform branching and merging operations  
@@ -21,15 +21,14 @@ The project focuses on applying version control concepts such as repository crea
 
 ---
 
-## 🛠 Tools & Technologies Used
+## Tools & Technologies Used
 - Git & Git Bash  
 - GitHub  
 - Linux Shell Scripting  
 - Markdown (`README.md`)  
 
 ---
-
-## 📂 Project Description
+## Project Description
 The project consists of a shell script named `system_report.sh` that automatically generates a system monitoring report.  
 The report includes:
 - Date and time  
@@ -43,7 +42,7 @@ All development activities are tracked using Git with multiple branches and mean
 
 ---
 
-## 📁 Project Folder Structure
+## Project Folder Structure
 
 ```text
 Devops-System-Monitoring/
@@ -62,10 +61,11 @@ Devops-System-Monitoring/
 │
 └── .git/
 
+```
 
 ---
 
-## ⚠ Challenges Faced
+## Challenges Faced
 - Understanding Git workflow and staging area
 - Managing multiple branches
 - Resolving merge conflicts
@@ -73,7 +73,7 @@ Devops-System-Monitoring/
 
 ---
 
-## 🛠 How Challenges Were Overcome
+## How Challenges Were Overcome
 - Practiced Git commands regularly
 - Verified active branch before editing
 - Manually resolved merge conflicts
@@ -81,7 +81,7 @@ Devops-System-Monitoring/
 
 ---
 
-## 🌿 Git Workflow Implemented
+## Git Workflow Implemented
 The following Git concepts were implemented in this project:
 
 - Repository initialization using `git init`
@@ -98,7 +98,7 @@ The following Git concepts were implemented in this project:
 
 ---
 
-## 💻 Git Commands Used
+## Git Commands Used
 - `git init`  
 - `git status`  
 - `git add`  
@@ -112,12 +112,15 @@ The following Git concepts were implemented in this project:
 
 ---
 
-## ⚙ Automation Execution
+## Automation Execution
 The automation script is executed using the following command:
+```bash
+bash system_report.sh
+```
 
 ---
 
-## 🖼 Screenshots (With Description)
+## Screenshots (With Description)
 
 | Screenshot | Description |
 |----------|------------|
@@ -138,11 +141,9 @@ It strengthened understanding of version control systems, branching, merging, an
 
 ---
 
-## 👤 Author
+## Author
 **Yash Singhal**  
 DevOps & Computer Science Student
 
 ---
 
-```bash
-bash system_report.sh
