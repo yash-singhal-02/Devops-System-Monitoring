@@ -39,6 +39,30 @@ The report includes:
 The generated output is saved in a file named `system_report.txt`.  
 All development activities are tracked using Git with multiple branches and meaningful commits.
 
+
+
+---
+
+## 📁 Project Folder Structure
+
+```text
+Devops-System-Monitoring/
+│
+├── README.md
+├── system_report.sh
+├── system_report.txt
+├── screenshots/
+│   ├── git_init.png
+│   ├── branches.png
+│   ├── commits.png
+│   ├── merge_conflict.png
+│   ├── conflict_resolved.png
+│   ├── script_run.png
+│   └── github_repo.png
+│
+└── .git/
+
+
 ---
 
 ## ⚠ Challenges Faced
