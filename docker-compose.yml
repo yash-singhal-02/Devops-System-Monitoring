@@ -1,0 +1,5 @@
+services:
+  monitoring-app:
+    build: ./backend
+    ports:
+      - "3000:3000"
