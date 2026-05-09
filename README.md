@@ -1,149 +1,302 @@
-# DevOps-Based Automated System Monitoring Script  
-### Git Bash & GitHub Hands-On Project
+# DevOps Infrastructure Monitoring System
 
-**Developed by: Yash Singhal**
+### Dockerized Monitoring Dashboard with CI/CD Automation
 
----
-
-## Introduction
-This project is developed as part of the **Fundamentals of DevOps** course to demonstrate the practical usage of **Git Bash and GitHub** along with basic **Linux automation**.  
-The project focuses on applying version control concepts such as repository creation, branching, merging, and conflict resolution, along with automating system monitoring tasks using a shell script.
+**Developed By: Yash Singhal**
 
 ---
 
-## Project Objectives
-- To automate basic system monitoring using Linux shell scripting  
-- To understand and apply Git version control concepts  
-- To perform branching and merging operations  
-- To demonstrate merge conflict creation and resolution  
-- To use GitHub as a remote repository  
-- To document the complete DevOps workflow using Markdown  
+# Introduction
+
+This project is developed as part of the **DEVOPS VIRTUALIZATION AND CONFIGURATION MANAGEMENT** course to demonstrate practical implementation of modern DevOps concepts including:
+
+- Containerization
+- CI/CD Automation
+- Docker Orchestration
+- Infrastructure Monitoring
+- Version Control
+
+The project provides a real-time monitoring dashboard that displays important system metrics such as CPU usage and memory utilization through a centralized web interface.
+
+The application is containerized using Docker, managed using Docker Compose, and automated using GitHub Actions CI/CD pipeline.
 
 ---
 
-## Tools & Technologies Used
-- Git & Git Bash  
-- GitHub  
-- Linux Shell Scripting  
-- Markdown (`README.md`)  
+# Project Objectives
 
----
-## Project Description
-The project consists of a shell script named `system_report.sh` that automatically generates a system monitoring report.  
-The report includes:
-- Date and time  
-- CPU usage  
-- Memory usage  
-
-The generated output is saved in a file named `system_report.txt`.  
-All development activities are tracked using Git with multiple branches and meaningful commits.
-
-
+- To develop a real-time infrastructure monitoring dashboard
+- To monitor CPU and memory usage
+- To implement Docker containerization
+- To manage services using Docker Compose
+- To automate Docker builds using GitHub Actions
+- To understand practical DevOps workflow implementation
+- To integrate Git and GitHub version control
 
 ---
 
-## Project Folder Structure
+# Tools & Technologies Used
+
+| Tool / Technology | Purpose |
+|---|---|
+| HTML | Frontend structure |
+| CSS | Dashboard styling |
+| JavaScript | Frontend functionality |
+| Node.js | Backend server |
+| Express.js | API development |
+| Docker | Containerization |
+| Docker Compose | Multi-container orchestration |
+| Git & GitHub | Version control |
+| GitHub Actions | CI/CD automation |
+| Linux Commands | System monitoring |
+
+---
+
+# Project Description
+
+The project consists of a monitoring dashboard that fetches real-time system information using backend APIs.
+
+The dashboard displays:
+
+- CPU Usage
+- Total Memory
+- Used Memory
+
+The backend is developed using Node.js and Express.js. System information is collected using the `systeminformation` package.
+
+The complete application is containerized using Docker and deployed using Docker Compose.
+
+A GitHub Actions CI/CD pipeline is implemented to automatically build the Docker image whenever code is pushed to the GitHub repository.
+
+---
+
+# Features
+
+ Real-time monitoring dashboard  
+ CPU usage monitoring  
+ RAM usage monitoring  
+ Docker containerization  
+ Docker Compose orchestration  
+ Automated CI/CD pipeline  
+ GitHub integration  
+ Responsive dashboard UI  
+
+---
+
+# Project Folder Structure
 
 ```text
 Devops-System-Monitoring/
 │
+├── backend/
+│     ├── public/
+│     │      ├── index.html
+│     │      ├── style.css
+│     │      └── script.js
+│     │
+│     ├── server.js
+│     ├── package.json
+│     ├── Dockerfile
+│     └── node_modules/
+│
+├── screenshots/
+│
+├── docker-compose.yml
 ├── README.md
 ├── system_report.sh
 ├── system_report.txt
-├── screenshots/
-│   ├── git_init.png
-│   ├── branches.png
-│   ├── commits.png
-│   ├── merge_conflict.png
-│   ├── conflict_resolved.png
-│   ├── script_run.png
-│   └── github_repo.png
 │
-└── .git/
-
+└── .github/
+      └── workflows/
+            └── main.yml
 ```
 
 ---
 
-## Challenges Faced
-- Understanding Git workflow and staging area
-- Managing multiple branches
-- Resolving merge conflicts
-- Running Linux commands on Windows Git Bash
+# Docker Implementation
+
+## Build Docker Image
+
+```bash
+docker build -t devops-monitor ./backend
+```
 
 ---
 
-## How Challenges Were Overcome
-- Practiced Git commands regularly
-- Verified active branch before editing
-- Manually resolved merge conflicts
-- Used Ubuntu (WSL) for Linux command execution
+## Run Docker Container
+
+```bash
+docker run -p 3000:3000 devops-monitor
+```
 
 ---
 
-## Git Workflow Implemented
-The following Git concepts were implemented in this project:
+# Docker Compose Implementation
+
+## Run Project Using Docker Compose
+
+```bash
+docker compose up
+```
+
+Docker Compose automatically:
+- Builds the application
+- Creates containers
+- Maps ports
+- Runs monitoring service
+
+---
+
+# GitHub Actions CI/CD
+
+This project uses GitHub Actions for Continuous Integration and Continuous Deployment (CI/CD).
+
+Whenever code is pushed to GitHub:
+
+- GitHub Actions automatically triggers
+- Docker image is automatically built
+- CI/CD pipeline executes successfully
+
+---
+
+# CI/CD Workflow
+
+```text
+Developer Pushes Code
+          ↓
+GitHub Repository
+          ↓
+GitHub Actions Triggered
+          ↓
+Docker Image Build
+          ↓
+CI/CD Pipeline Execution
+          ↓
+Deployment Ready
+```
+
+---
+
+# Git Workflow Implemented
+
+The following Git concepts were implemented:
 
 - Repository initialization using `git init`
-- Minimum **10 meaningful commits**
-- Creation of **four branches**:
-  - feature  
-  - test  
-  - bugfix  
-  - experiment  
-- Merging branches into the main branch
-- Intentional creation of a merge conflict
-- Manual resolution of merge conflict
-- Final project push to GitHub
+- Multiple commits
+- Branch creation and management
+- GitHub repository integration
+- Docker project version tracking
+- Push and pull operations
+- CI/CD workflow integration
 
 ---
 
-## Git Commands Used
-- `git init`  
-- `git status`  
-- `git add`  
-- `git commit`  
-- `git branch`  
-- `git checkout`  
-- `git merge`  
-- `git log`  
-- `git remote add origin`  
-- `git push`  
+# Git Commands Used
+
+- `git init`
+- `git status`
+- `git add`
+- `git commit`
+- `git pull`
+- `git push`
+- `git branch`
+- `git merge`
+- `git log`
 
 ---
 
-## Automation Execution
-The automation script is executed using the following command:
-```bash
-bash system_report.sh
-```
+# Challenges Faced
+
+- Understanding Docker containerization
+- Managing Docker port conflicts
+- Configuring Docker Compose
+- Setting up GitHub Actions CI/CD
+- Handling Git merge conflicts
+- Managing Docker image build issues
 
 ---
 
-## Screenshots (With Description)
+# How Challenges Were Overcome
 
-| Screenshot | Description |
-|----------|------------|
-| ![Git Init](screenshots/git_init.png) | Git repository initialization |
-| ![Branches](screenshots/branches.png) | Branch creation and listing |
-| ![Commits](screenshots/commits.png) | Commit history |
-| ![Merge Conflict](screenshots/merge_conflict.png) | Merge conflict demonstration |
-| ![Conflict Resolved](screenshots/conflict_resolved.png) | Conflict resolution |
-| ![Script Run](screenshots/script_run.png) | Automation script execution |
-| ![GitHub Repo](screenshots/github_repo.png) | Project pushed to GitHub |
-
+- Restarted Docker Desktop during build issues
+- Used lightweight Docker images (`node:18-alpine`)
+- Cleared Docker cache and unused images
+- Properly mapped ports using Docker Compose
+- Practiced Git commands and merge handling
+- Verified CI/CD pipeline execution through GitHub Actions
 
 ---
 
-## Conclusion
-This project demonstrates practical usage of Git and GitHub along with Linux automation.
-It strengthened understanding of version control systems, branching, merging, and documentation.
+# Screenshots
+
+## Dashboard Running
+
+![Dashboard](screenshots/dashboard.png)
 
 ---
 
-## Author
-**Yash Singhal**  
-DevOps & Computer Science Student
+## Docker Image Build
+
+![Docker Build](screenshots/docker_build.png)
 
 ---
 
+## Docker Compose Execution
+
+![Docker Compose](screenshots/docker_compose.png)
+
+---
+
+## GitHub Actions CI/CD
+
+![GitHub Actions](screenshots/github_actions.png)
+
+---
+
+# Expected Outcome
+
+- Successful Dockerized monitoring dashboard
+- Real-time system monitoring
+- Working Docker Compose orchestration
+- Automated CI/CD implementation
+- Improved understanding of DevOps workflow
+- Practical implementation of containerization
+
+---
+
+# Future Scope
+
+- Jenkins Integration
+- Kubernetes Deployment
+- Advanced Monitoring Graphs
+- Cloud Deployment
+- Email Alerts & Notifications
+- User Authentication System
+
+---
+
+# Conclusion
+
+This project successfully demonstrates practical implementation of modern DevOps concepts using Docker, Docker Compose, GitHub, and GitHub Actions.
+
+The project provides hands-on experience with:
+- Containerization
+- Infrastructure Monitoring
+- CI/CD Automation
+- Deployment Workflow
+- Version Control
+
+It enhanced practical understanding of DevOps lifecycle management and modern deployment practices.
+
+---
+
+# Author
+
+### Yash Singhal
+
+DevOps Infrastructure Monitoring System Project
+
+---
+
+# 📄 License
+
+This project is developed for educational purposes.
