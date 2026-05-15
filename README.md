@@ -230,7 +230,7 @@ The following Git concepts were implemented:
 
 ## Dashboard Running
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/Dashboard.png)
 
 ---
 
