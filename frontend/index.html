@@ -3,33 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevPulse: Real-Time Infrastructure Monitoring with Docker & CI/CD</title>
+    <title>DevPulse | Real-Time Infrastructure Monitoring</title>
+    <meta name="description" content="Advanced real-time infrastructure monitoring dashboard with interactive visualizations and historical tracking.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- Chart.js for interactivity -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-
-    <h1>DevOps Monitoring Dashboard</h1>
-
-    <div class="container">
-
-        <div class="card">
-            <h2>CPU Usage</h2>
-            <p id="cpu">Loading...</p>
+    <div class="glow-bg"></div>
+    
+    <header>
+        <div class="brand">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </div>
+            <h1>DevPulse</h1>
         </div>
-
-        <div class="card">
-            <h2>Total Memory</h2>
-            <p id="totalMemory">Loading...</p>
+        <div class="clock-display" id="real-time-clock">
+            00:00:00
         </div>
-
-        <div class="card">
-            <h2>Used Memory</h2>
-            <p id="usedMemory">Loading...</p>
+        <div class="header-actions">
+            <button id="refresh-btn" class="icon-btn" title="Refresh Now">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+            </button>
+            <div class="status-badge" id="status-badge">
+                <span class="status-dot"></span>
+                <span class="status-text">SYSTEM LIVE</span>
+            </div>
         </div>
+    </header>
 
+    <main class="dashboard-grid">
+        <!-- CPU Metric Card -->
+        <section class="card bento-cpu interactive-card" data-detail="cpu">
+            <div class="card-header">
+                <h2>CPU Usage</h2>
+                <span class="icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" width="16" height="16" y="4" rx="2"/><path d="M9 4V2"/><path d="M15 4V2"/><path d="M9 22v-2"/><path d="M15 22v-2"/><path d="M20 9h2"/><path d="M20 15h2"/><path d="M2 9h2"/><path d="M2 15h2"/></svg>
+                </span>
+            </div>
+            <div class="card-content">
+                <div class="progress-ring-container">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring__circle-bg" stroke="rgba(255,255,255,0.05)" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="progress-ring__circle" id="cpu-ring" stroke="var(--primary)" stroke-width="8" stroke-dasharray="326.7" stroke-dashoffset="326.7" stroke-linecap="round" fill="transparent" r="52" cx="60" cy="60"/>
+                    </svg>
+                    <div class="progress-value">
+                        <span id="cpu-value">0</span><small>%</small>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">Click for history</div>
+        </section>
+
+        <!-- Memory Metric Card -->
+        <section class="card bento-memory interactive-card" data-detail="memory">
+            <div class="card-header">
+                <h2>Memory Metrics</h2>
+                <span class="icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19v-3"/><path d="M10 19v-3"/><path d="M14 19v-3"/><path d="M18 19v-3"/><path d="M8 11V9"/><path d="M16 11V9"/><path d="M12 11V9"/><path d="M2 15h20"/><path d="M2 7h20"/><path d="M2 5h20"/><path d="M2 19h20"/><path d="M2 5v14"/><path d="M22 5v14"/></svg>
+                </span>
+            </div>
+            <div class="card-content">
+                <div class="memory-stats">
+                    <div class="stat-row">
+                        <span>Used</span>
+                        <span id="used-mem-text">0 GB</span>
+                    </div>
+                    <div class="memory-bar-container">
+                        <div class="memory-bar" id="memory-bar" style="width: 0%"></div>
+                    </div>
+                    <div class="stat-row secondary">
+                        <span>Total Capacity</span>
+                        <span id="total-mem-text">0 GB</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">Click for details</div>
+        </section>
+
+        <!-- Trends Card -->
+        <section class="card bento-trends">
+            <div class="card-header">
+                <h2>Real-Time Trends</h2>
+                <div class="chart-controls">
+                    <span class="legend-item"><span class="dot cpu"></span> CPU</span>
+                    <span class="legend-item"><span class="dot mem"></span> MEM</span>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="chart-container">
+                    <canvas id="trendsChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Health Card -->
+        <section class="card bento-health">
+            <div class="card-header">
+                <h2>Health Index</h2>
+            </div>
+            <div class="card-content">
+                <div class="health-score">
+                    <span id="health-score">98</span>
+                    <small>/ 100</small>
+                </div>
+                <p class="health-desc">Optimal performance maintained.</p>
+            </div>
+        </section>
+        
+        <!-- Live Analysis Card -->
+        <section class="card bento-insights">
+            <div class="card-header">
+                <h2>System Analysis</h2>
+            </div>
+            <div class="card-content">
+                <div class="insight-box" id="insight-box">
+                    <p class="insight-text">Initializing system diagnostic analysis...</p>
+                    <div class="insight-footer">
+                        <span id="insight-time">Updated just now</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Detail Modal -->
+    <div id="detail-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Metric Details</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamic content here -->
+            </div>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <footer>
+        <p>2026 DevPulse Monitoring by Yash Singhal</p>
+    </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
