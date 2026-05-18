@@ -1,6 +1,6 @@
 async function getSystemData() {
 
-    const response = await fetch("http://localhost:3000/system");
+    const response = await fetch("/system");
 
     const data = await response.json();
 
