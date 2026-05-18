@@ -132,7 +132,7 @@ function generateInsight(cpu, memPercent) {
 
 async function fetchSystemData() {
     try {
-        const response = await fetch("http://localhost:3000/system");
+        const response = await fetch("/system");
         if (!response.ok) throw new Error("Backend unreachable");
         
         const data = await response.json();
