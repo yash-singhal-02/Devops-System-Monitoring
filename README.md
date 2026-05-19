@@ -297,7 +297,3 @@ It enhanced practical understanding of DevOps lifecycle management and modern de
 DevOps Infrastructure Monitoring System Project
 
 ---
-
-# 📄 License
-
-This project is developed for educational purposes.
